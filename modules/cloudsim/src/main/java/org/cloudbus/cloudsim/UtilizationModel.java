@@ -11,7 +11,8 @@ package org.cloudbus.cloudsim;
 /**
  * The UtilizationModel interface needs to be implemented in order to provide a fine-grained control
  * over resource usage by a Cloudlet.
- * 
+ * *需要实现UtilizationModel接口以提供细粒度控制
+ * *Cloudlet过度使用资源。
  * @author Anton Beloglazov
  * @since CloudSim Toolkit 2.0
  * @todo It has to be seen if the utilization models are only for cloudlets. If yes,

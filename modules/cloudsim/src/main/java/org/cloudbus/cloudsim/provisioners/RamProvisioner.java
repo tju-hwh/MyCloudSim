@@ -16,7 +16,15 @@ import org.cloudbus.cloudsim.Vm;
  * Each host has to have its own instance of a RamProvisioner.
  * When extending this class, care must be taken to guarantee that the field
  * availableMemory will always contain the amount of free memory available for future allocations.
- * 
+ *
+ * *RamProvisioner是一个抽象类，表示主机使用的配置策略
+ * *将内存分配给其中的虚拟机。
+ * *每个主机都必须有自己的RamProvisioner实例。
+ * *扩展此类时，必须注意确保字段
+ * *availableMemory将始终包含可用于将来分配的可用内存量。
+ *
+ * *
+ *
  * @author Rodrigo N. Calheiros
  * @author Anton Beloglazov
  * @since CloudSim Toolkit 1.0

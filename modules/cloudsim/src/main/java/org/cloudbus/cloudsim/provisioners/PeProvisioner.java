@@ -22,7 +22,15 @@ import org.cloudbus.cloudsim.Vm;
  * Each host's PE has to have its own instance of a PeProvisioner.
  * When extending this class, care must be taken to guarantee that the field
  * availableMips will always contain the amount of free mips available for future allocations.
- * 
+ *
+ * PeProvisioner是一个抽象类，表示主机使用的配置策略
+ * *将其PE分配给其中的虚拟机。它得到一个体育锻炼
+ * *并对其进行管理，以便将此PE作为虚拟机的虚拟PE提供。
+ * *这样，一个给定的PE就可以在不同的vm之间共享。
+ * *每个主机的PE都必须有自己的PeProvisioner实例。
+ * *扩展此类时，必须注意确保字段
+ * *availableMips将始终包含可用于将来分配的免费mips的数量。
+ *
  * @author Anton Beloglazov
  * @since CloudSim Toolkit 2.0
  */

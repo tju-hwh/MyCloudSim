@@ -206,7 +206,9 @@ public class CloudSimExample3 {
     		); // This is our second machine
 
 
-
+		// 5. 创建一个数据中心特征对象，
+		// 该对象存储数据中心的属性:体系结构、操作系统、机器列表、
+		// 分配策略:时间或空间共享、时区及其价格(G$/Pe时间单位)
 		// 5. Create a DatacenterCharacteristics object that stores the
 		//    properties of a data center: architecture, OS, list of
 		//    Machines, allocation policy: time- or space-shared, time zone

@@ -16,7 +16,17 @@ import org.cloudbus.cloudsim.provisioners.PeProvisioner;
  * <b>ASSUMPTION:<b> All PEs under the same Machine have the same MIPS rating.
  * @todo This assumption is not being assured on different class (where other TODOs where introduced)
  * @todo Pe statuses have to be defined using an enum
- * 
+ *
+ *
+ *
+ * *Pe（Processing Element）类表示物理机（PM）的CPU核心，
+ * *以每秒百万条指令（MIPS）等级定义。<br/>
+ * *<b>假设：<b>同一台机器下的所有PE具有相同的MIPS等级。
+ * *@todo这个假设在不同的类上没有得到保证（如果引入了其他todo）
+ * *@todo Pe状态必须使用枚举定义
+ *
+ *
+ *
  * @author Manzur Murshed
  * @author Rajkumar Buyya
  * @since CloudSim Toolkit 1.0

@@ -16,7 +16,11 @@ import java.util.List;
  * systems by setting the capacity of the storage and the maximum transfer rate. The transfer rate
  * defines the time required to execute some common operations on the storage, e.g. storing a file,
  * getting a file and deleting a file.
- * 
+ * 定义数据云中存储系统所需功能的接口。这个
+ * *实现此接口的类应该模拟不同存储的特性
+ * *系统通过设置存储容量和最大传输速率。传输速率
+ * *定义在存储器上执行某些常见操作所需的时间，例如存储文件，
+ * *获取文件和删除文件。
  * @author Uros Cibej
  * @author Anthony Sulistio
  * @since CloudSim Toolkit 1.0

@@ -20,7 +20,19 @@ import org.cloudbus.cloudsim.Vm;
  * allocate virtual PEs to VMs: 
  * if there is available mips on the physical PE, it allocates to a virtual PE; otherwise, it fails. 
  * Each host's PE has to have its own instance of a PeProvisioner.
- * 
+ *
+ * 供应者
+ * *PeProvisionerSimple是{@link PeProvisioner}的扩展，它使用尽力而为策略
+ * *将虚拟PE分配给虚拟机：
+ * *如果物理PE上有可用的mips，则分配给虚拟PE；否则，它就失败了。
+ * *每个主机的PE都必须有自己的PeProvisioner实例。
+ *
+ * *PE 指的是 Process Element， 就是逻辑核心(logic core)，一个逻辑核心上可以跑一个线程。这个概念引出是由于现在有很多双线程的处理器(double-thread core)，可以一个核心运行两个完全不同的任务/线程, 一个当两个用，所以不能单单当成一个核了，就说一个核有两个PE。
+ * 名词解释：
+ * 1个PE可以跑1个线程(thread)。PE指的是硬件，线程是跑在PE上的软件。
+ * 比如说因特尔的i7-4790K，就是4核8线程处理器，每个核有两个线程，也就是有8个PE。
+ *
+ *
  * @author Anton Beloglazov
  * @since CloudSim Toolkit 2.0
  */
