@@ -20,7 +20,7 @@ import java.util.stream.Collectors;
  * 4 cloudlet
  **/
 
-public class CloudSimExmapleHWH2_4 {
+public class CloudSimExmapleHWH_diff_Vm {
     /**
      * cloudlet list
      **/
@@ -48,6 +48,7 @@ public class CloudSimExmapleHWH2_4 {
             //创建vm
             List<Vm> vmList = new ArrayList<Vm>();
             //VM description
+
             int vmid;
             int mips = 250;
             long size = 10000; //image size (MB)
@@ -55,11 +56,19 @@ public class CloudSimExmapleHWH2_4 {
             long bw = 1000;
             int pesNumber = 1; //number of cpus
             String vmm = "Xen"; //VMM name
-            for (int i = 0; i < 4; i++) {
-                Vm vm1 = null;
-                vm1 = new Vm(i, brokerId, mips, pesNumber, ram, bw, size, vmm, new CloudletSchedulerTimeShared());
-                vmList.add(vm1);
-            }
+
+            // alt shift insert 竖直选中粘贴，用完记得 alt shift insert取消该模式
+            Vm vm1= new Vm(0,brokerId, mips, 3, ram, bw, size, vmm, new CloudletSchedulerTimeShared());
+            Vm vm2= new Vm(1,brokerId, mips, 2, ram, bw, size, vmm, new CloudletSchedulerTimeShared());
+            Vm vm3= new Vm(2,brokerId, mips, 1, ram, bw, size, vmm, new CloudletSchedulerTimeShared());
+            Vm vm4= new Vm(3,brokerId, mips, 3, ram, bw, size, vmm, new CloudletSchedulerTimeShared());
+            Vm vm5= new Vm(4,brokerId, mips, 3, ram, bw, size, vmm, new CloudletSchedulerTimeShared());
+            vmList.add(vm1);
+            vmList.add(vm2);
+            vmList.add(vm3);
+            vmList.add(vm4);
+            vmList.add(vm5);
+
             for (Vm vm : vmList) {
                 System.out.println("VM列表："+vm.toString());
             }
@@ -137,7 +146,8 @@ public class CloudSimExmapleHWH2_4 {
 
         Datacenter datacenter = null;
         try {
-            datacenter = new Datacenter(name, characteristics, new VmAllocationPolicySimple(hostList),
+            //VmAllocationPolicySimple_Mine(hostList)             VmAllocationPolicySimple(hostList)
+            datacenter = new Datacenter(name, characteristics, new VmAllocationPolicySimple_Mine(hostList),
                     storageList, 0);
         } catch (Exception e) {
             e.printStackTrace();

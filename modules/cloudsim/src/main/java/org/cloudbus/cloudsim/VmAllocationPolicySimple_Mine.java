@@ -24,13 +24,13 @@ import org.cloudbus.cloudsim.core.CloudSim;
  * @author Anton Beloglazov
  * @since CloudSim Toolkit 1.0
  */
-public class VmAllocationPolicySimple extends VmAllocationPolicy {
+public class VmAllocationPolicySimple_Mine extends VmAllocationPolicy {
 
 	/** The map between each VM and its allocated host.
          * The map key is a VM UID and the value is the allocated host for that VM. */
 	private Map<String, Host> vmTable;
 
-	/** The map between each VM and the number of Pes used. 
+	/** The map between each VM and the number of Pes used.
          * The map key is a VM UID and the value is the number of used Pes for that VM. */
 	private Map<String, Integer> usedPes;
 
@@ -39,12 +39,12 @@ public class VmAllocationPolicySimple extends VmAllocationPolicy {
 
 	/**
 	 * Creates a new VmAllocationPolicySimple object.
-	 * 
+	 *
 	 * @param list the list of hosts
 	 * @pre $none
 	 * @post $none
 	 */
-	public VmAllocationPolicySimple(List<? extends Host> list) {
+	public VmAllocationPolicySimple_Mine(List<? extends Host> list) {
 		super(list);
 
 		setFreePes(new ArrayList<Integer>());
@@ -59,7 +59,7 @@ public class VmAllocationPolicySimple extends VmAllocationPolicy {
 
 	/**
 	 * Allocates the host with less PEs in use for a given VM.
-	 * 
+	 *
 	 * @param vm {@inheritDoc}
 	 * @return {@inheritDoc}
 	 * @pre $none
@@ -77,14 +77,18 @@ public class VmAllocationPolicySimple extends VmAllocationPolicy {
 
 		if (!getVmTable().containsKey(vm.getUid())) { // if this vm was not created
 			do {// we still trying until we find a host or until we try all of them
-				int moreFree = Integer.MIN_VALUE;
-				int idx = -1;
 
-				// we want the host with less pes in use
+				int moreFree = freePesTmp.get(0);
+				int idx = 0;
+
 				for (int i = 0; i < freePesTmp.size(); i++) {
-					if (freePesTmp.get(i) > moreFree) {
+					if(requiredPes>freePesTmp.get(i)){
+						continue;
+					}else if (freePesTmp.get(i)>moreFree){
+						continue;
+					}else {
 						moreFree = freePesTmp.get(i);
-						idx = i;
+						idx=i;
 					}
 				}
 
